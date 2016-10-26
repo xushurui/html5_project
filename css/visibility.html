@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			h1.hidden {
+				visibility: hidden;
+			}
+			
+			h1.hiddenone {
+				display: none;
+			}
+			
+			tr.collapse{visibility: collapse;}
+		</style>
+	</head>
+
+	<body>
+		<h1>这是一个可见标题</h1>
+		<h1 class="hidden">这是一个隐藏标题</h1>
+		<p>注意, 实例中的隐藏标题仍然占用空间。</p>
+		<h1 class="hiddenone">这是一个隐藏标题</h1>
+		<p>注意, 实例中的隐藏标题仍然占用空间。</p>
+		<!--块元素是一个元素，占用了全部宽度，在前后都是换行符。
+块元素的例子：<h1><p><div>
+内联元素只需要必要的宽度，不强制换行。
+内联元素的例子：<span><a>-->
+	
+	<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+  </tr>
+  <tr>
+    <td>Peter</td>
+    <td>Griffin</td>
+  </tr>
+  <tr class="collapse">
+    <td>Lois</td>
+    <td>Griffin</td>
+  </tr>
+</table>
+	</body>
+
+</html>

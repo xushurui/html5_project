@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>绝对定位的元素的位置相对于最近的已定位父元素，如果元素没有已定位的父元素，那么它的位置相对于<html>:</title> 
+<style>
+h2
+{
+	position:absolute;
+	left:100px;
+	top:150px;
+}
+
+img{
+	position: absolute;
+	left:0px;
+	top:0px;
+	z-index: -1;
+}
+</style>
+</head>
+
+<body>
+<h2>这是一个绝对定位了的标题</h2>
+<p>用绝对定位,一个元素可以放在页面上的任何位置。标题下面放置距离左边的页面100 px和距离页面的顶部150 px的元素。.</p>
+
+
+<h1>This is a heading</h1>
+<img src="w3css.gif" width="100" height="140" />
+<p>因为图像元素设置了 z-index 属性值为 -1, 所以它会显示在文字之后。</p>
+</body>
+
+</html>

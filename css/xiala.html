@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.dropbtn {
+				background-color: #4CAF50;
+				color: white;
+				padding: 16px;
+				font-size: 16px;
+				border: none;
+				cursor: pointer;
+			}
+			
+			.dropdown {
+				position: relative;
+				display: inline-block;
+			}
+			
+			.dropdown-content {
+				display: none;
+				position: absolute;
+				background-color: #f9f9f9;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px rgba(0, 0, 0, 0, 2);
+			}
+			
+			.dropdown-content a {
+				color: black;
+				padding: 12px 16px;
+				text-decoration: none;
+				display: block;
+			}
+			
+			.dropdown-content a:hover {
+				background-color: #f1f1f1;
+			}
+			
+			.dropdown:hover .dropdown-content {
+				display: block;
+			}
+			
+			.dropbtn:hover .dropbtn {
+				background-color: #3e8e41;
+			}
+		</style>
+	</head>
+
+	<body>
+		<h2>下拉菜单</h2>
+		<p>鼠标移动到按钮上打开下拉菜单。</p>
+		<div class="dropdown">
+			<button class="dropbtn">下拉菜单</button>
+			<div class="dropdown-content">
+				<a href="http://www.runoob.com">菜鸟教程 1</a>
+				<a href="http://www.runoob.com">菜鸟教程 2</a>
+				<a href="http://www.runoob.com">菜鸟教程 3</a>
+			</div>
+
+		</div>
+
+		
+	</body>
+
+</html>
+<!--
+	<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.dropdown{
+				position:relative;
+				display: inline-block;
+			}
+			.dropdow-content{
+				display: none;
+				position: absolute;
+				background-color: #f9f9f9;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgb(0,0,0,0.2);
+				padding: 12px 16px;
+			}
+			.dropdown:hover .dropdow-content{
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		<h2>鼠标移动后出现下拉菜单</h2>
+<p>将鼠标移动到指定元素上就能看到下拉菜单。</p>
+<div class="dropdown">
+	<span>鼠标移动到我这!</span>
+	<div class="dropdow-content">
+		<p>菜鸟教程</p>
+		<p>www.runoob.com</p>
+	</div>
+	</body>
+</html>
+-->

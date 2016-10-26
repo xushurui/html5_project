@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"> 
+<title>菜鸟教程(runoob.com)
+在下面的例子中，选择相匹配的所有<p>元素的第一 <i>元素：
+
+</title> 
+<style>
+p:first-child
+{
+	color:blue;
+} 
+
+p > i:first-child
+{
+	color:blue;
+}
+
+p:first-child i{
+	color:blue;
+} 
+</style>
+</head>
+
+<body>
+<p>This is some text.</p>
+<p>This is some text.</p>
+
+<p>I am a <i>strong</i> man. I am a <i>strong</i> man.</p>
+<p>I am a <i>strong</i> man. I am a <i>strong</i> man.</p>
+
+<span>I am a <i>strong</i> man. I am a <i>strong</i> man.</span>
+<span>I am a <i>strong</i> man. I am a <i>strong</i> man.</span>	
+
+</body>
+</html>
