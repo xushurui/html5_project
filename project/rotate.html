@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+	<title></title>
+	<style type="text/css">
+		#content{
+			width:410px;
+			height: 400px;
+			position: relative;
+			margin: 20px auto 0;
+		
+		}
+		#content div{
+			width:100px;
+			height:100px;
+			float: left;
+			text-align: center;
+			line-height: 100px;
+			font-size: 24px;
+			
+		}
+		#content .box-1{
+			background-color: yellow;
+		}
+		#content .box-2{
+			background-color: orange;
+		}
+		#content .box-3{
+			background-color: yellow;
+		}
+		#content .box-4{
+			background-color: orange;
+		}
+		#content .box-5{
+			background-color: yellow;
+		}
+		#content .box-6{
+			background-color: orange;
+		}
+		#content .box-7{
+			background-color: yellow;
+		}
+		#content .box-8{
+			background-color: orange;
+		}
+		#content .box-9{
+			background-color: yellow;
+		}
+		#content .box-10{
+			background-color: orange;
+		}
+		#content .box-11{
+			background-color: yellow;
+		}
+		#content .box-12{
+			background-color: orange;
+		}
+		#content .start{
+			position: absolute;
+			margin-top:150px;
+			margin-left: 150px;
+		}
+       #content .move{
+       	    background-color: red;
+       }
+		
+
+	</style>
+</head>
+<body>
+   <div id="content">
+        <div class="box box-1">1</div>
+        <div class="box box-2">2</div>
+        <div class="box box-3">3</div>
+        <div class="box box-4">4</div>
+        <div class="box box-12">12</div>
+        <div class="box box-content"></div>
+        <div class="box box-content"></div>
+        <div class="box box-5">5</div>
+        <div class="box box-11">11</div>
+        <div class="box box-content"></div>
+        <div class="box box-content"></div>
+        <div class="box box-6">6</div>
+        <div class="box box-10">10</div>
+        <div class="box box-9">9</div>
+        <div class="box box-8">8</div>
+        <div class="box box-7">7</div>
+        <div class="box start">抽奖</div>
+   </div>
+
+</body>
+<script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript">
+$(function(){
+	
+	var i=null;//初始位置
+	var speed=80;
+	var ok=null;//标记中奖的位置
+	var count=null;//变化的总的次数
+	var nowcount=null;//当前变化的位置
+	var n=5;//圈数
+    var paly=false;
+    var xq=0;
+
+    function movement(){
+    	if(nowcount>count){
+           setTimeout(function(){
+           	paly=false;
+           	alert("恭喜你，中了"+eval(ok)+"等奖");
+           },500);
+        }else{
+        	nowcount+=1;
+        	if(i>11){
+        		xq+=1;
+        		if(xq==n-1){
+        			speed=300;
+        		};
+        		$(".box").removeClass("move");
+        		$(".box-12").addClass("move");
+        		i=1;
+        	}else{
+        		$(".box").removeClass("move");
+        		$(".box-"+i).addClass("move");
+        		i+=1;
+        	};
+        	setTimeout(movement,speed);
+        };
+    };
+
+    $(".start").click(function(){
+    	if(!paly){
+    		if(xq==0){
+    			ok=Math.ceil(Math.random()*12)
+    			alert(ok);
+    			count=n*12+ok;//一共转的块数
+    			nowcount=0;
+    			i=1;
+    			paly=true;
+    			count-=1;
+    			movement();
+    		
+    	    }else{
+
+    	};
+    }
+ }); 
+});
+</script>
+</html>
+

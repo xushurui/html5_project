@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+		  body{
+		  	min-width: 400px;
+		  	max-height:400px;
+		  }
+		  #logo{
+		  	position: relative;
+		  	top:200px;
+		  	left:25%;
+		  }
+		  #bg2{
+		  	width:295px;
+		  	height:195px;
+		  	margin:0 auto;
+		  }
+		  #bg2_img{
+		  	position: absolute;
+		  	top:100px;
+		  }
+		  canvas{
+		  	width: 320px;
+		  	height: 160px;
+		  	position: absolute;
+		  	top:300px;
+
+		  	border:5px solid white;
+		  }
+
+		</style>
+		
+	</head>
+	<body>
+		 <div class="bg">
+            
+            <img src="guaguaka_bg.png" width="100%" height="100%" / >
+        </div>
+        
+            <div id="bg2">
+		         <img id="bg2_img" src="guaguaka_word.png" width="295" height="195"/>
+		          
+		          	<canvas></canvas>//出错对应的地方
+		         
+	        </div>
+       <script type="text/javascript" src="http://www.sucaihuo.com/Public/js/other/jquery.js"></script> 
+
+        <script type="text/javascript">
+                    var bodyStyle = document.body.style;
+
+                    bodyStyle.mozUserSelect = 'none';
+                    bodyStyle.webkitUserSelect = 'none';
+
+                    
+                    var canvas = document.querySelector('canvas');//获取canvas
+                    canvas.style.backgroundColor = 'transparent';//背景颜色为透明
+                    canvas.style.position = 'absolute';
+
+
+                    //中奖随机的地方
+                    var img = new Image();
+                    var imgs = ['p_0.jpg', 'p_1.jpg'];
+                    var num = Math.floor(Math.random() * 2);
+                    img.src = imgs[num];
+                     
+
+
+                    //加载事件
+                    img.addEventListener('load', function(e) {
+                        var ctx;
+                        var w = img.width,//获取图片的宽和高
+                                h = img.height;
+                        var offsetX = canvas.offsetLeft,//相对于页面最顶部的位置，出错的地方
+                                offsetY = canvas.offsetTop;
+                                alert(offsetX+" "+offsetY);
+                                
+                        var mousedown = false;//鼠标点击
+                         
+
+
+                         //画灰色矩阵
+                        function layer(ctx) {
+                            ctx.fillStyle = 'gray';
+                            ctx.fillRect(0, 0, w, h);
+                        }
+                        
+
+                        //鼠标点击按下
+                        function eventDown(e) {
+                            e.preventDefault();
+                            mousedown = true;
+                        }
+                        
+
+                        //鼠标点击起来
+                        function eventUp(e) {
+                            e.preventDefault();
+                            mousedown = false;
+                        }
+                         
+
+
+                         //鼠标移动
+                        function eventMove(e) {
+                            e.preventDefault();
+                            if (mousedown) {
+                                if (e.changedTouches) {
+                                    e = e.changedTouches[e.changedTouches.length - 1];
+                                }
+
+                                //获得鼠标点击的点（这个地方要记住）
+                                var x = (e.clientX + document.body.scrollLeft || e.pageX) - offsetX || 0,
+                                        y = (e.clientY + document.body.scrollTop || e.pageY) - offsetY || 0;
+                                        
+                                with (ctx) {
+                                    beginPath()
+                                    arc(x, y, 10, 0, Math.PI * 2);//画透明的圆
+                                    fill();
+                                }
+                            }
+                        }
+                        
+
+                        //图的大小
+                        canvas.width = w;
+                        canvas.height = h;
+                        canvas.style.backgroundImage = 'url(' + img.src + ')';
+                        ctx = canvas.getContext('2d');
+                        ctx.fillStyle = 'transparent';
+                        ctx.fillRect(0, 0, w, h);
+                        layer(ctx);
+
+                        ctx.globalCompositeOperation = 'destination-out';//画出来的图像显示在原图的上方
+
+
+                        //添加监听事件
+                        canvas.addEventListener('touchstart', eventDown);
+                        canvas.addEventListener('touchend', eventUp);
+                        canvas.addEventListener('touchmove', eventMove);
+                        canvas.addEventListener('mousedown', eventDown);
+                        canvas.addEventListener('mouseup', eventUp);
+                        canvas.addEventListener('mousemove', eventMove);
+                    });
+        </script>
+    </body>
+	
+</html>
