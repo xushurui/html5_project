@@ -1,0 +1,72 @@
+*{
+	margin:0;
+	padding:0;
+}
+a{
+	text-decoration: none;
+}
+body{
+	padding:20px;
+}
+#container{
+	width:600px;
+	height:400px;
+	border:3px solid #333;
+	overflow:hidden;
+	position:relative;
+}
+#list{
+	width:4200px;
+	height: 400px;
+	position:absolute;
+	z-index: 1;
+}
+#list img{
+	float: left;
+}
+#button{
+	position:absolute;
+	height:10px;
+	width:100px;
+	z-index: 2;//按钮在图片上面
+	bottom: 20px;
+	left: 250px;
+}
+#button span{
+	cursor: pointer;
+	float:left;
+	border: 1px solid #fff;
+	width:10px;
+	height:10px;
+	border-radius: 50%;
+}
+#buttons .on {  
+    background: orangered;   /*选中的按钮样式*/
+}
+.arrow { 
+    cursor: pointer; 
+    display: none;    /*左右切换按钮默认先隐藏*/
+    line-height: 39px; 
+    text-align: center; 
+    font-size: 36px; 
+    font-weight: bold; 
+    width: 40px; 
+    height: 40px;  
+    position: absolute; 
+    z-index: 2; 
+    top: 180px; 
+    background-color: RGBA(0,0,0,.3); 
+    color: #fff;
+}
+.arrow:hover { 
+    background-color: RGBA(0,0,0,.7);
+}
+#container:hover .arrow { 
+    display: block;   /*当鼠标放上去容器上面就显示左右切换按钮*/
+}
+#prev { 
+    left: 20px;
+}
+#next { 
+    right: 20px;
+}

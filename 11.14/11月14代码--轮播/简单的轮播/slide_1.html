@@ -1,0 +1,190 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>ͼƬ����</title>
+</head>
+<body>
+<style type="text/css">
+<!--
+*{
+	margin:0;
+	border:0;
+	padding:0;
+}
+
+.wholeDiv {
+	margin:10px auto 100px auto;
+	background: #FFF;
+	overflow:hidden;
+	border: 1px dashed #CCC;
+	width: 800px;
+}
+img {
+border: 3px solid #F2F2F2;
+width:100px;
+height:80px;
+}
+
+.indemo {width: 800%; float:left;}
+.left {float: left;}
+.right {float: right;}
+
+#demoTop{width:100px; height:600px; position:absolute; left:5px; top:5px;}
+#indemoTop{height:800%;}
+
+#demoDown{width:100px; height:600px; position:absolute; right:5px; top:5px;}
+#indemoDown{height:800%;}
+
+-->
+</style>
+<div id="demo" class="wholeDiv">
+<div id="indemo" class="indemo left">
+<div id="demo1" class="left">
+<a href="#"><img src="img/001.jpg" border="0" /></a>
+<a href="#"><img src="img/002.jpg" border="0" /></a>
+<a href="#"><img src="img/003.jpg" border="0" /></a>
+<a href="#"><img src="img/004.jpg" border="0" /></a>
+<a href="#"><img src="img/005.jpg" border="0" /></a>
+<a href="#"><img src="img/006.jpg" border="0" /></a>
+<a href="#"><img src="img/007.jpg" border="0" /></a>
+<a href="#"><img src="img/008.jpg" border="0" /></a>
+<a href="#"><img src="img/009.jpg" border="0" /></a>
+</div>
+<div id="demo2" class="left"></div>
+
+</div>
+</div>
+
+
+<div id="demoRight" class="wholeDiv">
+<div id="indemoRight" class="indemo">
+<div id="demo1Right" class="left">
+<a href="#"><img src="img/001.jpg" border="0" /></a>
+<a href="#"><img src="img/002.jpg" border="0" /></a>
+<a href="#"><img src="img/003.jpg" border="0" /></a>
+<a href="#"><img src="img/004.jpg" border="0" /></a>
+<a href="#"><img src="img/005.jpg" border="0" /></a>
+<a href="#"><img src="img/006.jpg" border="0" /></a>
+<a href="#"><img src="img/007.jpg" border="0" /></a>
+<a href="#"><img src="img/008.jpg" border="0" /></a>
+<a href="#"><img src="img/009.jpg" border="0" /></a>
+</div>
+<div id="demo2Right" class="left"></div>
+</div>
+</div>
+
+<div id="demoTop" class="wholeDiv">
+<div id="indemoTop">
+<div id="demo1Top">
+<a href="#"><img src="img/001.jpg" border="0" /></a>
+<a href="#"><img src="img/002.jpg" border="0" /></a>
+<a href="#"><img src="img/003.jpg" border="0" /></a>
+<a href="#"><img src="img/004.jpg" border="0" /></a>
+<a href="#"><img src="img/005.jpg" border="0" /></a>
+<a href="#"><img src="img/006.jpg" border="0" /></a>
+<a href="#"><img src="img/007.jpg" border="0" /></a>
+<a href="#"><img src="img/008.jpg" border="0" /></a>
+<a href="#"><img src="img/009.jpg" border="0" /></a>
+</div>
+<div id="demo2Top"></div>
+</div>
+</div>
+
+<div id="demoDown" class="wholeDiv">
+<div id="indemoDown">
+<div id="demo1Down">
+<a href="#"><img src="img/001.jpg" border="0" /></a>
+<a href="#"><img src="img/002.jpg" border="0" /></a>
+<a href="#"><img src="img/003.jpg" border="0" /></a>
+<a href="#"><img src="img/004.jpg" border="0" /></a>
+<a href="#"><img src="img/005.jpg" border="0" /></a>
+<a href="#"><img src="img/006.jpg" border="0" /></a>
+<a href="#"><img src="img/007.jpg" border="0" /></a>
+<a href="#"><img src="img/008.jpg" border="0" /></a>
+<a href="#"><img src="img/009.jpg" border="0" /></a>
+</div>
+<div id="demo2Down"></div>
+</div>
+</div>
+<script>
+<!--
+	var speed=15;
+	var tab=document.getElementById("demo");
+	var tab1=document.getElementById("demo1");
+	var tab2=document.getElementById("demo2");//demo2为demo1克隆的内容
+	tab2.innerHTML=tab1.innerHTML;//
+
+	function MarqueeLeft(){
+		//  offsetLeft：当前对象到其上级层左部的距离。
+     //scrollLeft：对象左端滚动出显示范围距离的值。
+     //offsetWidth：当前对象的宽度值。
+     
+		if(tab1.offsetWidth - tab.scrollLeft<=0){//当滑动到最后一个时，回到开始的地方
+			tab.scrollLeft -= tab1.offsetWidth;
+		}
+		//当demo1与demo2的交接处滚动到demo左端时
+		if(tab1.offsetWidth - tab.scrollLeft<=0){//当滑动到最后一个时，回到开始的地方
+			tab=0;//demo回到开始的位置
+		}
+		else{
+			tab.scrollLeft++;//每次向左滑动一位
+		}	
+		
+	}
+	var MyMar=setInterval(MarqueeLeft,speed);
+	tab.onmouseover=function() {clearInterval(MyMar)};//停止滑动
+	tab.onmouseout=function() {MyMar=setInterval(MarqueeLeft,speed)};//继续滑动
+	
+	
+	var rightDiv = document.getElementById("demoRight");
+	var rightDiv1 = document.getElementById("demo1Right");
+	var rightDiv2 = document.getElementById("demo2Right");
+	rightDiv2.innerHTML = rightDiv1.innerHTML;
+	rightDiv.scrollLeft = rightDiv1.offsetWidth;	//首先超出的显示的部分的值就定为当前所有图片的长度
+	function MarqueenRight(){
+		if(rightDiv.scrollLeft<=0)//当减为0时
+		   rightDiv.scrollLeft=rigthDiv1.offsetWidth;
+		else
+		   rightDiv.scrollLeft--;//减少一个像素
+	}
+	var marRight = setInterval(MarqueenRight,speed);
+	rightDiv.onmouseover = function() {clearInterval(marRight)};
+	rightDiv.onmouseout=function() {marRight = setInterval(MarqueenRight,speed)};
+	
+	
+	var topDiv = document.getElementById("demoTop");
+	var topDiv1 = document.getElementById("demo1Top");
+	var topDiv2 =  document.getElementById("demo2Top");
+	topDiv2.innerHTML = topDiv1.innerHTML;
+	function MarqueenTop(){
+		if(topDiv.scrollTop > topDiv1.offsetHeight)
+			topDiv.scrollTop -= topDiv1.offsetHeight;
+		else
+			topDiv.scrollTop++;
+	}
+	var marTop = setInterval(MarqueenTop,speed);
+	topDiv.onmouseover = function(){ clearInterval(marTop)};
+	topDiv.onmouseout = function(){ marTop = setInterval(MarqueenTop,speed)};
+	
+	
+	
+	var downDiv = document.getElementById("demoDown");
+	var downDiv1 = document.getElementById("demo1Down");
+	var downDiv2 =  document.getElementById("demo2Down");
+	downDiv2.innerHTML = downDiv1.innerHTML;
+	downDiv.scrollTop = downDiv1.offsetWidth;
+	function MarqueenDown(){
+		if(downDiv.scrollTop <=0)
+			downDiv.scrollTop =0;
+		else
+			downDiv.scrollTop--;
+	}
+	var marDown = setInterval(MarqueenDown,speed);
+	downDiv.onmouseover = function(){ clearInterval(marDown)};
+	downDiv.onmouseout = function(){ marDown = setInterval(MarqueenDown,speed)};
+	
+-->
+</script>
+</body>
+</html>

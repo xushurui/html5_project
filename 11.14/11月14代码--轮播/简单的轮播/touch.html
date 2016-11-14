@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .box{
+            width:100px;
+            height:100px;
+            background:red;
+            position:absolute;
+            top:0;
+            left:0;
+        }
+    </style>
+ 
+</head>
+<body>
+    <div id="box" class="box"></div>
+</body>
+</html>
+
+
+   <script>
+        //有参数的构造函数
+        function Drag(ele){
+            this.ele=ele;
+        }
+        //属性的配置
+        Drag.prototype={
+           fndown:function(event){
+               var _this=this;
+               this.disP={
+               	//clientX触摸点相对于浏览器窗口的位置
+               	//鼠标在拖放对象按住，就会触发Start程序，主要是用来准备拖动，在这里记录鼠标相对拖放对象的坐标：
+                   x:event.clientX-this.ele.offsetLeft,
+                   y:event.clientY-this.ele.offsetTop
+               };
+               document.onmousemove=function(ev){
+                   ev=ev||window.event;//事件
+                    _this.fnmove(ev);
+                    };
+                    //鼠标松开的事件
+                    document.onmouseup = function() {
+                    	_this.fnup();
+                    }
+                    },
+
+                    fnmove: function(event) {
+//当鼠标在文档上移动时， 就会触发Move程序了， 这里就是实现拖动的程序。
+//通过现在鼠标的坐标值跟开始拖动时鼠标相对的坐标值的差就可以得到拖放对象应该设置的left和top了：
+                    		this.move = {
+                    			x: event.clientX - this.disP.x,
+                    			y: event.clientY - this.disP.y
+                    		};
+                 //物体应该放的位置
+                this.ele.style.left = this.move.x +'px';//x轴的位移量
+                this.ele.style.top=this.move.y+'px';//y轴的位移量
+           },
+
+           fnup:function(){
+                document.onmousemove=null;
+                document.onmouseup=null;
+           },
+           init:function(){
+               var self=this;
+                self.ele.onmousedown=function(event){
+                    event=event||window.event;
+                    self.fndown(event);
+                    
+                }
+
+           }
+
+        };
+
+
+
+
+        window.onload=function(){
+            var box=document.querySelector('#box'),//当前事件div.box#box
+                    drag=new Drag(box);
+
+            drag.init();
+
+        };
+    </script>

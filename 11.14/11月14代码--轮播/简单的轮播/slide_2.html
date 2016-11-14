@@ -1,0 +1,208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>基于jquery的图片轮播</title>
+
+<style type="text/css">
+* {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
+}
+
+a,
+img {
+	border: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+#wholeDiv {
+	text-align: center;
+}
+
+#wholeDiv h2 {
+	margin: 40px 0 10px 0;
+	color: #ff6600;
+	font-family: "微软雅黑", "黑体";
+	font-size: 18px;
+}
+
+
+/* slider */
+
+.slider {
+	margin: 5px auto;
+	width: 620px;
+	height: 340px;
+	border: 1px dashed #ccc;
+	position: relative;
+	overflow: hidden;
+}
+
+.conbox {
+	position: absolute;
+}
+
+.switcher {
+	position: absolute;
+	bottom: 5px;
+	right: 10px;
+	z-index: 99;
+	display: none;
+}
+
+
+/* z-index属性用来保证可以始终显示在图片上面 */
+
+.switcher a {
+	background: #fff;
+	border: 1px solid #ff6600;
+	cursor: pointer;
+	float: left;
+	height: 14px;
+	line-height: 14px;
+	width: 14px;
+	font-size: 12px;
+	color: #ff6600;
+	margin: 3px;
+	text-align: center;
+	color: #ff60;
+}
+
+.switcher a.cur,
+.switcher a:hover {
+	background: #ff6600;
+	border: 1px solid #DBDB00;
+	color: #fff;
+	height: 18px;
+	line-height: 18px;
+	width: 18px;
+	margin: 1px;
+	font-weight: 600;
+}
+
+.conbox div {
+	width: 620px;
+	height: 340px;
+}
+/* 水平滚动 */
+
+#slider_slide_LR .conbox {
+	width: 9999em;
+}
+
+#slider_slide_LR .conbox div {
+	overflow: hidden;
+	float: left;
+}
+</style>
+
+<script type="text/javascript" src="js/jquery-1.9.1.js"></script>
+<script type="text/javascript" src="js/jquery.Xslider.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(e) {
+	
+	//淡隐淡现
+    $("#slider_fade").Xslider({
+		affect:"fade",			//效果，默认为‘scrollx’, 可选 scrollx|scrolly|fade|none
+		speed: 1000,			//动画速度，默认为800
+		space: 2000,			//时间间隔，默认为6000
+		aoto:true,				//自动滚动，默认为true
+		trigger:"mouseover",	//触发事件,注意用mouseover代替hover
+		conbox:".conbox",		//内容容器id或class
+		switcher:".switcher",	//触发器id或class
+		ctag:"div",				//内容标签，默认为a
+		stag:"a",				//切换器标签，默认为a
+		current:"cur",			//当前切换器样式名称
+		rand:"false"			//是否随机制定默认幻灯图片
+	});
+	
+	//水平滚动
+	$("#slider_slide_LR").Xslider({
+		speed:800,
+		space:2000
+	});
+	
+	//垂直滚动
+	$("#slider_slide_UD").Xslider({
+		affect:"scrolly",
+		space:2000
+	});
+	
+	//控制切换器的淡入淡出
+	$(".slider").mouseover(function(){
+		$(this).find(".switcher").fadeIn(500);
+	});
+	$(".slider").mouseleave(function(){
+		$(this).find(".switcher").fadeOut(500);
+	});
+	
+});
+</script>
+</head>
+
+<body>
+
+<div id="wholeDiv">
+	<h2>焦点图片淡隐淡现</h2>
+    <div id="slider_fade" class="slider">
+        <div class="conbox">
+            <div><a href="#"><img src="img/001.jpg" /></a></div>
+            <div><a href="#"><img src="img/002.jpg" /></a></div>
+            <div><a href="#"><img src="img/003.jpg" /></a></div>
+            <div><a href="#"><img src="img/004.jpg" /></a></div>
+            <div><a href="#"><img src="img/005.jpg" /></a></div>
+        </div>
+        <div class="switcher">
+            <a href="#" class="cur">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+        </div>
+    </div>
+    
+    <h2>焦点图片水平滚动</h2>
+    <div id="slider_slide_LR" class="slider">
+        <div class="conbox">
+            <div><a href="#"><img src="img/001.jpg" /></a></div>
+            <div><a href="#"><img src="img/002.jpg" /></a></div>
+            <div><a href="#"><img src="img/003.jpg" /></a></div>
+            <div><a href="#"><img src="img/004.jpg" /></a></div>
+            <div><a href="#"><img src="img/005.jpg" /></a></div>
+        </div>
+        <div class="switcher">
+            <a href="#" class="cur">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+        </div>
+    </div>
+    
+    <h2>焦点图片垂直滚动</h2>
+    <div id="slider_slide_UD" class="slider">
+        <div class="conbox">
+            <div><a href="#"><img src="img/001.jpg" /></a></div>
+            <div><a href="#"><img src="img/002.jpg" /></a></div>
+            <div><a href="#"><img src="img/003.jpg" /></a></div>
+            <div><a href="#"><img src="img/004.jpg" /></a></div>
+            <div><a href="#"><img src="img/005.jpg" /></a></div>
+        </div>
+        <div class="switcher">
+            <a href="#" class="cur">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#">4</a>
+            <a href="#">5</a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+    <title>test touch</title>
+    <style>
+    body { margin: 0; }
+    .box { width: 100%; overflow: hidden; }
+    ul,li { margin: 0; padding: 0; list-style: none; }
+    ul { width: 500%; overflow: hidden; transition: .5s; }
+    li { width: 20%; float: left; }
+    li { font-size: 40px; color: #fff; text-align: center; line-height: 150px; }
+    li:nth-of-type(1) { background: orange; }
+    li:nth-of-type(2) { background: red; }
+    li:nth-of-type(3) { background: pink; }
+    li:nth-of-type(4) { background: green; }
+    li:nth-of-type(5) { background: #333; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul id="test">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
+</body>
+<script>
+
+window.onload = function() {
+    var oUl = document.getElementById('test');
+    var aLi = oUl.getElementsByTagName('li');
+    
+    var sX = 0;    // 手指初始x坐标
+    var sLeft = 0; // 初始位移
+    var index = 0; 
+    var curLeft = 0; // 当前位移
+    var disX = 0;  // 滑动差值
+
+    oUl.addEventListener('touchstart', touchstart, false);
+
+    function touchstart(e) {
+        e.preventDefault();
+        sX = e.changedTouches[0].pageX;
+
+        // 计算初始位移
+        sLeft = oUl.style.transform ? -parseInt(/\d+/.exec(oUl.style.transform)[0]) : 0;
+        oUl.style.transition = 'none';
+
+        document.addEventListener('touchmove', touchmove, false);
+        document.addEventListener('touchend', touchend, false);
+    }
+
+    function touchmove(e) {
+        disX = e.changedTouches[0].pageX - sX;
+        curLeft = sLeft + disX;
+        oUl.style.transform = 'translateX(' + curLeft + 'px)';
+    }
+
+    function touchend(e) {
+        if (disX > 100) { 
+            if (index != 0) {
+                index -= 1;
+            }
+        } 
+        if (disX < -100) {
+            if (index != aLi.length - 1) {
+                index += 1;
+            };
+        };
+        oUl.style.transition = '.5s';
+        oUl.style.transform = 'translateX(' + -index*aLi[0].offsetWidth + 'px)';
+    }
+}    
+
+</script>
+</html>
