@@ -1,0 +1,140 @@
+@charset "utf-8";
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font: 71%/1.5 Verdana, Sans-Serif;
+	background: #eee;
+}
+
+
+/* container */
+
+#container {
+	margin: auto auto;
+	padding:12px;
+	max-width: 688px;
+	min-width: 688px;
+	height:900px;
+	background: lightblue;
+}
+
+#write {
+	margin: 0 0 5px;
+	margin-left: 20%;
+	padding: 5px;
+	width: 350px;
+	height: 20px;
+	font: 1em/1.5 Verdana, Sans-Serif;
+	background: #fff;
+	border: 1px solid #f9f9f9;
+	opacity: 2px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.keyboard {
+	width:470px;
+	height:188px;
+	margin-left: 105px;
+	padding: 2px;
+	list-style: none;
+	background: #d3d4d9;
+}
+
+.keyboard li {
+	float: left;
+	margin: 0 5px 5px 0;
+	width: 40px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	background: #fff;
+	border: 1px solid #f9f9f9;
+	cursor: pointer;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+}
+
+.keyboard li:hover {
+	position: relative;
+	top: 1px;
+	left: 1px;
+	border-color: #e5e5e5;
+	background: #FFF1C2;
+}
+
+.left{
+	clear: left;
+}
+.keyboard .a{
+	width:20px;
+	background: #d3d4d9;
+	border: none;
+}
+.keyboard .z{
+	width:50px;
+	margin-left: 4px;
+	margin-right: 17px;
+	background: #aab1bb;
+	border: none;
+}
+.capslock,
+.tab{
+	clear: left;
+}
+
+
+.keyboard .delete {
+	width: 45px;
+	margin-left: 15px;
+	background: #aab1bb;
+	border: none;
+}
+.keyboard .number{
+	width:50px;
+	margin-left: 4px;
+	background: #aab1bb;
+	border: none;
+}
+
+
+.keyboard .search {
+	width: 105px;
+}
+.keyboard .blank{
+	width:180px;
+}
+
+
+.lastitem {
+	margin-right: 0;
+}
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+.keyboard .space {
+	clear: left;
+	width: 681px;
+}
+.keyboard .search{
+	background: #aab1bb;
+	border: none;
+}
+#num{
+	display: none;
+}
+#word{
+	display: none;
+}
+#cancle{
+	display: none;
+	position: absolute;
+	margin-left: 518px;
+	margin-top: -28px;
+}
+
