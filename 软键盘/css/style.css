@@ -5,29 +5,21 @@
 }
 
 body {
-	font: 71%/1.5 Verdana, Sans-Serif;
+	font: 71%/1.5 simsun, Sans-Serif;
 	background: #eee;
 }
 
 
 /* container */
 
-#container {
-	margin: auto auto;
-	padding:12px;
-	max-width: 688px;
-	min-width: 688px;
-	height:900px;
-	background: lightblue;
-}
 
 #write {
 	margin: 0 0 5px;
 	margin-left: 20%;
 	padding: 5px;
-	width: 350px;
-	height: 20px;
-	font: 1em/1.5 Verdana, Sans-Serif;
+	width: 55%;
+	height: 50px;
+	font: 3em Verdana, Sans-Serif;
 	background: #fff;
 	border: 1px solid #f9f9f9;
 	opacity: 2px;
@@ -36,20 +28,23 @@ body {
 }
 
 .keyboard {
-	width:470px;
-	height:188px;
-	margin-left: 105px;
+	width:100%;
+	height:23%;
+	margin-left: 0px;
 	padding: 2px;
 	list-style: none;
 	background: #d3d4d9;
+	position: fixed;
+	bottom: 0;
 }
 
 .keyboard li {
 	float: left;
-	margin: 0 5px 5px 0;
-	width: 40px;
-	height: 40px;
-	line-height: 40px;
+	margin: 10px 6px 5px 0;
+	width: 9%;
+	height:20%;
+	line-height: 230%;
+	font-size:3em;
 	text-align: center;
 	background: #fff;
 	border: 1px solid #f9f9f9;
@@ -57,6 +52,7 @@ body {
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 }
+
 
 .keyboard li:hover {
 	position: relative;
@@ -69,15 +65,11 @@ body {
 .left{
 	clear: left;
 }
-.keyboard .a{
-	width:20px;
-	background: #d3d4d9;
-	border: none;
-}
+
 .keyboard .z{
-	width:50px;
-	margin-left: 4px;
-	margin-right: 17px;
+	width:11%;
+	margin-left: 1%;
+	margin-right: 3%;
 	background: #aab1bb;
 	border: none;
 }
@@ -88,13 +80,13 @@ body {
 
 
 .keyboard .delete {
-	width: 45px;
-	margin-left: 15px;
+	width:11%;
+	margin-left: 3%;
 	background: #aab1bb;
 	border: none;
 }
 .keyboard .number{
-	width:50px;
+	width:11%;
 	margin-left: 4px;
 	background: #aab1bb;
 	border: none;
@@ -102,10 +94,11 @@ body {
 
 
 .keyboard .search {
-	width: 105px;
+	width: 17%;
+	margin-left: 1%;
 }
 .keyboard .blank{
-	width:180px;
+	width:45%;
 }
 
 
@@ -124,6 +117,7 @@ body {
 .keyboard .search{
 	background: #aab1bb;
 	border: none;
+	margin-left: ;
 }
 #num{
 	display: none;
@@ -134,7 +128,8 @@ body {
 #cancle{
 	display: none;
 	position: absolute;
-	margin-left: 518px;
-	margin-top: -28px;
+	margin-left: 754px;
+	margin-top: -60px;
+	font-size: 3em;
 }
 
