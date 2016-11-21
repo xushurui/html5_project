@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+		.{
+			margin: 0;
+			padding:0;
+		}
+		    .box1{
+		    	width:100%;
+		    	height:43px;
+		    	background: pink;
+		    	background-attachment:fixed;
+		    }
+		    .box2{
+		    	width:100%;
+		    	height:78px;
+		    
+		    	position:relative;
+		    	box-sizing: border-box;
+		    	border-bottom: 3px solid #f2f2f2;
+		    }
+		    .box2 input{
+		    	width:585px;
+		    	height:34px;
+		    	position: absolute;
+		    	left:58px;
+		    top:23px;
+		    background: #f2f2f2;
+		    border: 1px solid #f2f2f2;
+		    }
+		    .box2 .cancle{
+		    	font-family: simsun;
+		    	font-size:14px;
+		    	position: absolute;
+		    	top:38px;
+		    	left:666px;
+		    	color:#4aa5dc;
+		    }
+		    
+		    
+			.box3{
+				height:400px;
+				width:100%;
+				background: #d2d5de;
+				position: absolute;
+				overflow: hidden;
+				bottom: 0;
+				box-sizing: border-box;
+				padding: 2px;
+			}
+			.box3 ul{
+				list-style: none;
+				overflow: hidden;
+				margin-left: -10px;
+			}
+			
+			.box3 ul li{
+				display: inline-block;
+				width:73px;
+				line-height:80px;
+				margin-left:15px;
+				border-bottom:1px outset black;
+				border-radius: 10px;
+				text-align: center;
+				font-size:20px;
+				font-weight: 5px;
+				background-color: white
+			}
+			.left{
+				margin-left:55px;	
+			}
+			
+			.box3 .col-3 .caps{
+				width:80px;
+				height:80px;
+				margin-right: 28px;
+				
+			}
+			.box3 .col-3 .del{
+				width:90px;
+				height:80px;
+				margin-left: 35px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="container">
+			<div class="box1">			
+			</div>
+			<div class="box2">
+				<input type="text" id="write"  placeholder="搜索" onclick="show()" >
+				<span class="cancle">取消</span>
+			</div>
+			<div class="box3">
+				<ul class="col-1">
+					<li class="letter">q</li>
+					<li class="letter">w</li>
+					<li class="letter">e</li>
+					<li class="letter">r</li>
+					<li class="letter">t</li>
+					<li class="letter">y</li>
+					<li class="letter">u</li>
+					<li class="letter">i</li>
+					<li class="letter">o</li>
+					<li class="letter">p</li>
+				</ul>
+				<ul class="col-2 left">
+					<li class="letter">a</li>
+					<li class="letter">s</li>
+					<li class="letter">d</li>
+					<li class="letter">f</li>
+					<li class="letter">g</li>
+					<li class="letter">h</li>
+					<li class="letter">j</li>
+					<li class="letter">k</li>
+					<li class="letter">l</li>
+				</ul>
+				<ul class="col-3">
+					<li class="caps" id="caps">caps</li>
+					<li class="letter">z</li>
+					<li class="letter">x</li>
+					<li class="letter">c</li>
+					<li class="letter">v</li>
+					<li class="letter">b</li>
+					<li class="letter">n</li>
+					<li class="letter">m</li>
+					<li class="del" id="del">del</li>
+				</ul>
+				<ul class="col-4">
+					<li>123</li>
+					<li>blank</li>
+					<li>voice</li>
+					<li>空格</li>
+					<li>搜索</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
