@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<metaname="viewport"content="user-scalable=0"/>
+		<title></title>
+		<link rel="stylesheet" href="css/key.css" />
+		<script type="text/javascript" src="js/jquery-1.10.2.min.js" ></script>
+		<script type="text/javascript" src="js/key.js" ></script>
+	</head>
+	<body>
+		<div class="container">
+			<div class="box1">			
+			</div>
+			<div class="box2">
+				<input type="text" id="write"  placeholder="搜索" >
+				<span class="cancle" id="cancle" >取消</span>
+			</div>
+			<div class="whitespace"></div>
+			<div class="box3" id="word" >
+				<ul class="col-one" >
+					<li class="letter first">q</li>
+					<li class="letter">w</li>
+					<li class="letter">e</li>
+					<li class="letter">r</li>
+					<li class="letter">t</li>
+					<li class="letter">y</li>
+					<li class="letter">u</li>
+					<li class="letter">i</li>
+					<li class="letter">o</li>
+					<li class="letter last">p</li>
+				</ul>
+				<ul class="col-2 left">
+					<li class="letter">a</li>
+					<li class="letter">s</li>
+					<li class="letter">d</li>
+					<li class="letter">f</li>
+					<li class="letter">g</li>
+					<li class="letter">h</li>
+					<li class="letter">j</li>
+					<li class="letter">k</li>
+					<li class="letter">l</li>
+				</ul>
+				<ul class="col-3">
+					<li class="caps" id="caps" style="margin-left: 4px;">caps</li>
+					<li class="letter">z</li>
+					<li class="letter">x</li>
+					<li class="letter">c</li>
+					<li class="letter">v</li>
+					<li class="letter">b</li>
+					<li class="letter">n</li>
+					<li class="letter ">m</li>
+					<li class="del last" id="del">del</li>
+				</ul>
+				<ul class="col-4">
+					<li class="num first" id="num" style="margin-left: 10px;">123</li>
+					<li class="blank" id="map">map</li>
+					<li class="voice" id="voice">voi</li>
+					<li class="space"  id="space">空格</li>
+					<li class="search last"  id="search">搜索</li>
+				</ul>
+			</div>
+			<div class="box3" id="number" >
+				<ul class="col-one">
+					<li class="letter first">1</li>
+					<li class="letter">2</li>
+					<li class="letter">3</li>
+					<li class="letter">4</li>
+					<li class="letter">5</li>
+					<li class="letter">6</li>
+					<li class="letter">7</li>
+					<li class="letter">8</li>
+					<li class="letter">9</li>
+					<li class="letter last">0</li>
+				</ul>
+				<ul class="col-2" >
+					<li class="letter">-</li>
+					<li class="letter">/</li>
+					<li class="letter">:</li>
+					<li class="letter">;</li>
+					<li class="letter">(</li>
+					<li class="letter">)</li>
+					<li class="letter">￥</li>
+					<li class="letter">@</li>
+					<li class="letter">"</li>
+					<li class="letter">"</li>
+				</ul>
+				<ul class="col-3">
+					<li class="symbol" id="symbol"  style="margin-left: 10px;">#+-</li>
+					<li class="symbol">。</li>
+					<li class="symbol">，</li>
+					<li class="symbol">、</li>
+					<li class="symbol">?</li>
+					<li class="symbol">!</li>
+					<li class="symbol" >.</li>
+					
+					<li class="del last" id="del" style="margin-left: 85px;">del</li>
+				</ul>
+				<ul class="col-4">
+					<li class="pingying first" id="spell" style="margin-left: 36px;">拼音</li>
+					<li class="map" id="map">map</li>
+					<li class="voice" id="voice">voi</li>
+					<li class="space"  id="space">空格</li>
+					<li class="search last"  id="search" style="margin-right: 23px;">搜索</li>
+				</ul>
+			</div>
+		</div>
+		<script>
+			$(function(){
+				var winWidth=0;
+				var winHeight=0;
+				//获取窗口宽度
+				if (window.innerWidth){
+				    winWidth = window.innerWidth;
+				}else if ((document.body) && (document.body.clientWidth)){
+				    winWidth = document.body.clientWidth;
+				}
+				//获取窗口高度
+				if (window.innerHeight){
+				winHeight = window.innerHeight;
+				}else if((document.body) && (document.body.clientHeight)){
+				winHeight = document.body.clientHeight;
+				}
+				//通过深入Document内部对body进行检测，获取窗口高度
+				if (document.documentElement  && document.documentElement.clientHeight && document.documentElement.clientWidth){
+				winWidth  = document.documentElement.clientWidth;
+				winHeight = document.documentElement.clientHeight;
+				}
+				$('.container').keyboard();
+			});
+		</script>
+	</body>
+</html>
