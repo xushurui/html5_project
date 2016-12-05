@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				padding: 10px;
+			}
+			.table-position{
+				position: absolute;
+				left:0;
+				top:0;
+				
+				
+			}
+			.chooseTableHeight{
+				height:200px;
+				overflow-y: scroll;
+				border:1px solid #808080;
+			}
+			.rm-all{
+				left: 20px;
+			}
+		</style>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<script type="text/javascript" src="js/jquery-1.11.1.js" ></script>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js" ></script>
+		<script>
+		    var h = "";
+		    var i=1;
+			$.getJSON('available.json', function(json) {
+			
+			var i=1;
+			var add="添加";
+			var cancle="删除";
+			var a="a";
+			$.each(json.data.result, function(key, val) {
+				h +='<tr><td id="'+i+'">'+val.name+'</td><td>'+val.type+'</td><td>'+val.businessArea+'</td><td >'+val.ownerName+'</td><td>'+val.mobile+'</td><td ><input type="checkbox"  name="list" value="'+i+'"/></td></tr>';
+				i++;
+			});
+		    $('#chooseKind').append(h);
+			});
+			
+			$('#addChoosed').bind("click",function(){
+				
+			});
+			
+			
+		</script>
+	</head>
+	<body>
+		<h3>选择活动商家</h3>
+		<div class="row">
+		<form class="form-inline">
+			
+			<label>门店名称或电话</label>
+			<input type="text" class="input-md" id="phone"/>
+			<label>门店类型</label>
+			<select><option  class="col-md-6">全部</option></select>
+			<label>商圈</label>
+			<select><option  class="col-md-6">全部</option></select>
+			<button class="btn-default btn-sm">搜索</button>
+			
+		</form>
+		<div class="row">
+			<div class="col-md-6 chooseTableHeight">
+				<table class="table table-position" id="chooseTable" >
+					<thead>
+						<th>
+							门店名称
+						</th>
+						<th>门店类型</th>
+						<th>所属商圈</th>
+						<th>联系人</th>
+						<th>联系电话</th>
+						<th>操作</th>
+					</thead>
+					<tbody id="chooseKind">
+						
+					</tbody>
+				</table>
+			</div>
+			<div class="col-md-6 chooseTableHeight">
+				<table class="table table-position"  id="choosedTable">
+					<thead>
+						<th>
+							门店名称
+						</th>
+						<th>门店类型</th>
+						<th>所属商圈</th>
+						<th>联系人</th>
+						<th>联系电话</th>
+						<th>选择</th>
+					</thead>
+					<tbody id="choosedKind">
+						
+					</tbody>
+				</table>
+			</div>
+			
+		</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+			<input type="checkbox"  id="chooseall" onclick="choosed()"/>全选
+			<span id="addChoosed">添加</span>
+			</div>
+			<div class="col-md-6">
+			<input type="checkbox"  class="rm-all" id="rmAll" onclick="choosed()"/>全选
+			<span id="addRemoved">删除</span>
+			</div>
+		</div>
+		
+	</body>
+</html>

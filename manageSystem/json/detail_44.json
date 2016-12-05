@@ -1,0 +1,22 @@
+{
+	"success": true,
+	"msg": "操作成功",
+	"data": {
+		"coupons": [],
+		"creditPay": false,
+		"endTime": "2016-12-21 18:55:15",
+		"mark": "买那件",
+		"name": "测试",
+		"osType": [
+			2
+		],
+		"platDailyLimit": 30,
+		"shopDailyLimit": 10,
+		"shops": [],
+		"startTime": "2016-12-01 11:55:15",
+		"status": 4,
+		"statusValue": "已终止",
+		"type": 2,
+		"typeValue": "满减"
+	}
+}
