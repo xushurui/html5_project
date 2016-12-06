@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>jquery点击复选框触发事件给input赋值-柯乐义</title><base target="_blank" />
+<style type="text/css">
+* {
+margin: 0;
+padding: 0;
+list-style-type: none;
+}
+
+a, img {
+border: 0;
+text-decoration: none;
+}
+
+body {
+font: 12px/180% Arial, Helvetica, sans-serif, "新宋体";
+}
+
+table {
+empty-cells: show;
+border-collapse: collapse;
+border-spacing: 0;
+}
+/* tablist */
+.tablist {
+width: 400px;
+border: solid 8px #ddd;
+margin: 40px auto;
+}
+
+.tablist td {
+line-height: 24px;
+border-bottom: solid 1px #ddd;
+text-align: left;
+padding: 10px;
+}
+
+.tablist td input {
+line-height: 20px;
+margin-left: 5px;
+}
+.tablist td .txtValue
+
+{
+padding: 3px 0;
+width: 180px;
+}
+</style>
+
+</head>
+<body>
+<div><a href="http://keleyi.com">首页</a> <a href="http://keleyi.com/a/bjae/du3d362n.htm">原文</a> <a href="http://keleyi.com/keleyi/phtml/">特效</a> <a href="http://keleyi.com/jq/hovertree/">HoverTree</a></div>
+<table cellpadding="0" cellspacing="0" class="tablist">
+<tr>
+<td><input class="txtValue" type="text" name="keleyi" value="" />&nbsp;&nbsp;<input type="checkbox" data-type="checkall" />全选</td>
+</tr>
+<tr>
+<td>
+<input type="checkbox" name="keleyi" data-type="checkbox" data-value="张三" value="1" />张三
+<input type="checkbox" name="keleyi" data-type="checkbox" data-value="李四" value="2" />李四
+<input type="checkbox" name="keleyi" data-type="checkbox" data-value="柯乐义" value="3" />柯乐义
+<input type="checkbox" name="keleyi" data-type="checkbox" data-value="赵六" value="4" />赵六
+</td>
+</tr>
+</table>
+<script type="text/javascript" src="http://keleyi.com/keleyi/pmedia/jquery/jquery-1.11.2.min.js"></script>
+<script type="text/javascript">
+$(function(){
+$('[data-type="checkbox"]').click(function(){
+var data_value = $(this).attr('data-value'),
+txtalso = $.trim($(".txtValue").val());
+if($(this).prop("checked")) {
+if(txtalso.length > 0) {
+if(txtalso.indexOf(data_value+',') != -1) {
+return ;
+} else {
+txtalso += data_value + ',';
+}
+} else {
+txtalso = data_value+',';
+}
+} else {
+if(txtalso.indexOf(data_value+',') != -1) {
+txtalso = txtalso.replace(data_value+',', '');
+}
+}
+$(".txtValue").val(txtalso);
+});
+$('[data-type="checkall"]').click(function(){
+var str = '';
+if($(this).prop("checked")) {
+$.each($('[data-type="checkbox"]'), function(i){
+str += $(this).attr('data-value') + ',';
+});
+$('[data-type="checkbox"]').prop('checked', true);
+} else {
+$('[data-type="checkbox"]').prop('checked', false);
+}
+$(".txtValue").val(str);
+});
+});
+</script>
+
+</body>
+</html>

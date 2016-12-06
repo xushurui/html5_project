@@ -1,0 +1,55 @@
+<html>  
+  <head>  
+    <title>DWR获取浏览器页面信息</title>  
+    <script type="text/javascript" src="js/jquery-1.11.1.js" ></script>
+    <script>
+    function checkboxOnClick() {  
+        var a=[];  
+            $("input[type=checkbox]").click(function() {  
+                    var checkbox_value = $(this).attr('value');  
+                    if ($("#selectInfo" + checkbox_value).is(":checked")) {  
+                        if(a[0]=='未选择'){  
+                            a.splice(0,1);//splice() 方法用于插入、删除或替换数组的元素。  
+                        }  
+                        if(checkbox_value == "C\\+\\+")  
+                            checkboxvalue="C++";  
+                          
+                        a.push(checkbox_value);  
+                        dwr.util.setValue(tdid,a);//填充ID为tdid的表格行  
+                    } else {  
+                        if(checkbox_value == "C\\+\\+")  
+                            checkboxvalue="C++";  
+                         
+                        //alert(checkbox_value);  
+                        for(var i=0;i<a.length;i++){  
+                            if(checkboxvalue==a[i]) break;  
+                        }  
+                        a.splice(i,1);//splice() 方法用于插入、删除或替换数组的元素。  
+                        if(a==''){a.push('未选择');};  
+                        dwr.util.setValue(tdid,a);//填充ID为tdid的表格行  
+                    }  
+            });  
+        }
+    window.onload = function() {  
+            checkboxOnClick();  
+        }; 
+    </script>
+  </head>  
+  <body>
+  	
+    <table id="tableid" border="1" align="center">  
+        <tr>  
+            <td id="tdid"colspan="2" >修改此行值</td>  
+        </tr>  
+    </table>  
+        <input type="checkbox" name="interest" id="selectInfoC" value="C" />C  
+        <input type="checkbox" name="interest" id="selectInfoVB" value="VB" />VB  
+        <input type="checkbox" name="interest" id="selectInfoVFoxpro" value="VFoxpro" />VFoxpro  
+        <input type="checkbox" name="interest" id="selectInfoC++" value="C\+\+" />C++  
+        <input type="checkbox" name="interest" id="selectInfoJava" value="Java" />Java  
+        <input type="checkbox" name="interest" id="selectInfo.Net" value="\.Net" />.Net  
+        <input type="checkbox" name="interest" id="selectInfoPHP" value="PHP" />PHP  
+        <input type="checkbox" name="interest" id="selectInfoDelphi" value="Delphi" />Delphi  
+  </body> 
+ 
+</html> 

@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" href="css/bootstrap.min.css" />
+		<style>
+			body {
+				font-family: "微软雅黑";
+			}
+			
+			#cancle {
+				width: 100px;
+				margin-left: 50px;
+			}
+			
+			#save {
+				width: 100px;
+			}
+			
+			.width {
+				width: 80px;
+			}
+			
+			.activity-width-name {
+				width: 100px;
+			}
+			
+			.attention-content {
+				color: red;
+				
+			}
+			
+			.store-data {
+				margin-top: 100px;
+			}
+			
+			#money {
+				display: none;
+			}
+			
+			#timeDiscount {
+				display: none;
+			}
+			
+			#discount {
+				display: none;
+			}
+			
+			#customer {
+				background: #fff;
+				display: none;
+			}
+			
+			#choosecustomer {
+				padding:15px;
+				list-style-type: none;
+				position: absolute;
+				top: 149px;
+				left: 330px;
+				background: #fff;
+				border: 1px solid #000;
+				width: 200px;
+				z-index: 20;
+			}
+			
+			#choosed{
+				width:100px;
+				list-style-type: none;
+				
+			}
+			#choosed span{
+				
+				position: absolute;
+				left: 14px;
+				
+				
+			}
+			.chooseState span{
+				
+				border: 1px solid #000;
+			}
+			
+		</style>
+		<!--<script>   
+		window.moveTo(0, 0);//移动窗口   
+		window.resizeTo(800, 600);//改变大小   
+		window.onresize=new Function("window.resizeTo(800,   600);")   
+		</script>-->
+		<script>
+		    
+			$.getJSON('detail_64.json', function(json) {
+			$.each(json.data.result, function(key, val) {
+				
+			});
+		   
+			});
+			
+			
+			
+			
+		</script>
+	</head>
+
+	<body>
+		<div class="row">
+			<div class="col-md-3">
+				<h4>填写活动信息</h4></div>
+			
+		</div>
+		<div class="row">
+			<div class="col-md-8">
+				<form class="form-horizontal" role="form">
+					<div class="form-group">
+						<label class="col-sm-3 control-label">活动名称</label>
+						<div class="col-sm-9">
+							<input type="text" class="activity-width-name" id="activityName" />
+
+						</div>
+
+					</div>
+					<div class="form-group">
+						<lable class="col-sm-3 control-label">有效时间</lable>
+						<div class="col-sm-9">
+							<input type="text" class="width" id="vaildTime-1" /><span>至</span>
+							<input type="text" class="width" id="vaildTime-2" /><br/>
+							<span class="attention-content">注:格式XXXX-XX-XX</span>
+						</div>
+					</div>
+					<div class="form-group">
+						<label class="col-sm-3 control-label">活动类型</label>
+						<div class="col-sm-9">
+							<select class="col-sm-6" id="choose">
+								<option value="0">请输入你的选择</option>
+								<option value="1">
+									满减现金
+								</option>
+								<option value="2">
+									限时折扣
+								</option>
+								<option value="3">
+									满享折扣
+								</option>
+
+							</select>
+						</div>
+					</div>
+					<div >
+						<div id="money">
+							<div class="form-group">
+
+								<label class="col-sm-3 control-label">活动优惠</label>
+								<div class="col-sm-9">
+									<span>消费满</span>
+									<input type="text" class="width" id="moneyNum" /><span>元</span>
+									<span>立减</span>
+									<input type="text" class="width" id="moneyNum-1" /><span>元</span>
+								</div>
+
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-3 control-label">活动限制</label>
+								<div class="col-sm-9" id="controlNum">
+									<input type="checkbox" name="countNumber" value="0" />
+									<span>单个门店可享</span>
+									<input type="text" class="width" id="num-1" /><span>次</span>
+									<br />
+									<input type="checkbox" name="countNumber" value="1" />
+									<span>所有平台可享</span>
+									<input type="text" class="width" id="num-2" /><span>次</span><br />
+									<span class="attention-content">注：当两者都勾选时，单一门店可享次数必须小于等于所有平台可享次数</span>
+								</div>
+
+							</div>
+							<div class="form-group">
+								<label class="col-sm-3 control-label">活动标签</label>
+								<div class="col-sm-9">
+									<input type="text" id="activity-tag-name" /><br />
+									<span class="attention-content">注：活动期间展示于商家列表商家名称旁边的2至5个汉字</span>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-3 control-label">适用平台</label>
+								<div class="col-sm-9">
+
+									<input type="radio" checked="checked" name="platform" value="0" />
+									<span>app端</span>
+									<input type="radio" name="platform" value="1" />
+									<span>微信端</span>
+								</div>
+							</div>
+						</div>
+
+						<div id="timeDiscount">
+							<div class="form-group">
+								<label class="col-sm-3 control-label">活动折扣</label>
+								<div class="col-sm-9">
+									<input type="text" class="width" id="discountNum-timeDiscount" /><span>折</span>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-3 control-label">活动标签</label>
+								<div class="col-sm-9">
+									<input type="text" id="activity-tag-name-timeDiscount" /><br />
+									<span class="attention-content">注：活动期间展示于商家列表商家名称旁边的2至5个汉字</span>
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-3 control-label">活动限制</label>
+								<div class="col-sm-9">
+									<input type="radio" checked="checked" name="count" value="0" /><span>不限制享用次数</span>
+									<input type="radio" name="count" value="1" /><span>每天最多优惠</span>
+									<input type="text" class="width" id="num" /><span>次</span>
+								</div>
+							</div>
+						</div>
+
+						<div id="discount">
+							<div class="form-group">
+								<label class="col-sm-3 control-label">活动优惠</label>
+								<div class="col-sm-9">
+
+									<span>消费满</span>
+									<input type="text" class="width" id="moneyNum-discount-1" /><span>元</span>
+									<span>立享</span>
+									<input type="text" class="width" id="discountNum-1" /><span>折</span>
+									<span>封顶</span>
+									<input type="text" class="width" id="moneyNum-discount-2" /><span>元</span><br />
+
+									<span>消费满</span>
+									<input type="text" class="width" id="moneyNum-discount-3" /><span>元</span>
+									<span>立享</span>
+									<input type="text" class="width" id="discountNum-1" /><span>折</span>
+									<span>封顶</span>
+									<input type="text" class="width" id="moneyNum-discount-4" /><span>元</span>
+
+								</div>
+							</div>
+
+							<div class="form-group">
+								<label class="col-sm-3 control-label">活动限制</label>
+								<div class="col-sm-9">
+									<input type="checkbox" name="activityControl" id="single" value="0" />
+									<span>单个门店可享</span>
+									<input type="text " class="width" id="num-one-discount" /><span>次</span>
+									<br />
+									<input type="checkbox" name="activityControl" id="all" value="1" />
+									<span>所有平台可享</span>
+									<input type="text " class="width " id="num-two-discount" /><span>次</span>
+									<br />
+									<span class="attention-content ">注：当两者都勾选时，单一门店可享次数必须小于等于所有平台可享次数</span>
+								</div>
+							</div>
+
+						
+						<div class="form-group ">
+							<label class="col-sm-3 control-label ">活动标签</label>
+							<div class="col-sm-9 ">
+								<input type="text " class="activity-tag-name-discount " /><br />
+								<span class="attention-content ">注：活动期间展示于商家列表商家名称旁边的2至5个汉字</span>
+							</div>
+						</div>
+
+						<div class="form-group ">
+							<label class="col-sm-3 control-label ">适用平台</label>
+							<div class="col-sm-9 ">
+
+								<input type="radio" checked="checked" name="platform-discount" value="0" />
+								<span>app端</span>
+								<input type="radio" name="platform-discount" value="1" />
+								<span>微信端</span>
+							</div>
+						</div>
+					</div>
+              </div>
+					<div class="form-group ">
+						<label class="col-sm-3 control-label ">选择活动商家</label>
+						<div class="col-sm-4 ">
+							<span id="chooseCustomer">点击选择商家</span>
+						</div>
+					</div>
+					<div id="customer">
+						<div id="choosecustomer">
+                            <div id="after"></div>
+                             <div class="chooseState">
+                            	<span id="confirm">确定</span>
+                            	<span id="cancle">取消</span>
+                            </div>
+                            <div style="border-top:1px solid #000;">
+                            <ul  id="choosed">
+                            	<span>已经选择</span>
+                            	<li id="chooseLi"></li>
+                            </ul>
+                            </div>
+                           
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+
+		<table class="table col-md-7 " >
+			<thead>
+				<tr>
+					<th>序号</th>
+					<th>门店名称</th>
+					<th>门店类型</th>
+					<th>所属商圈</th>
+					<th>门店地址</th>
+					<th>联系人</th>
+					<th>联系电话</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody id="store-data">
+				
+			</tbody>
+		</table>
+
+		<div class="row ">
+			<button type="button " class="btn btn-default col-sm-offset-4 " id="save">保存</button>
+			<button type="button " class="btn btn-default " id="cancle">取消</button>
+			<br/>
+		</div>
+
+		<script type="text/javascript " src="js/jquery-1.11.1.min.js "></script>
+		<script type="text/javascript " src="js/bootstrap.min.js "></script>
+		<script type="text/javascript" src="js/add.js"></script>
+		<script type="text/javascript" src="js/check.js"></script>
+        
+	</body>
+
+</html>
