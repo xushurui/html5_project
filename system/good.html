@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="http://www.java1234.com/jquery-easyui-1.3.3/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="http://www.java1234.com/jquery-easyui-1.3.3/themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="http://www.java1234.com/jquery-easyui-1.3.3/demo/demo.css">
+	</head>
+
+	<body>
+		<div style="width: 1000px;height:50px;">
+			<span>商品名称</span>
+			<input type="text" id="goodName" />
+			<span>店铺名称</span>
+			<input type="text" id="storeName">
+			<div id="selectStore">
+				<div style="background:#eee;padding:5px;">
+					请选择店铺
+				</div>
+				<div style="padding:5px;">
+					<input type="radio" name="store" value="01" />
+					<span>xxx</span><br>
+				</div>
+			</div>
+			<span>开团时间</span>
+			<input type="text" id="startTime" />
+			<span>到期时间</span>
+			<input type="text" id="endTime" />
+			<a id="search"></a>
+		</div>
+		<div>
+			<a id="add" onclick="$('#addGood').window('open')">添加</a>
+			<a id="remove">删除</a>
+			<a id="edit">编辑</a>
+		</div>
+		<div id="addGood" style="width:500px;height:400px;padding:10px;">
+			<form id="ff" action="form" method="post">
+				<table>
+					<tr>
+						<td>商品名称:</td>
+						<td>
+							<input class="easyui-validatebox" type="text" name="name" data-options="required:true,validType:'length[8,12]'" />
+						</td>
+					</tr>
+					<tr>
+						<td>店铺名称:</td>
+						<td>
+							<input type="text" id="storeName-one">
+							<div id="selectStore-one">
+								<div style="background:#eee;padding:5px;">
+									请选择店铺
+								</div>
+								<div style="padding:5px;">
+									<input type="radio" name="store" value="01" />
+									<span>xxx</span><br>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>手机号码:</td>
+						<td>
+							<input class="easyui-validatebox" type="text" name="name" data-options="required:true," />
+						</td>
+					</tr>
+					<tr>
+						<td>商品信息:</td>
+						<td>
+							<input class="easyui-validatebox" type="text" name="name" data-options="required:true," />
+						</td>
+					</tr>
+					<tr>
+						<td>商品图片:</td>
+						<td>
+							<input class="easyui-validatebox" type="text" name="name" data-options="required:true," />
+						</td>
+					</tr>
+					<tr>
+						<td>商品数量</td>
+						<td>
+						<input class="easyui-numberspinner" data-options="min:2,value:2,required:true" style="width:80px;"/>
+						</td>
+					</tr>
+				</table>
+				<div style="text-align:center;padding:5px">
+				<a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitForm()">提交</a>
+				<a href="javascript:void(0)" class="easyui-linkbutton" onclick="clearForm()">重置</a>
+			    </div>
+		</div>
+
+		<div id="good">
+
+		</div>
+
+		<!--<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="http://www.java1234.com/jquery-easyui-1.3.3/jquery.min.js"></script>
+		<script type="text/javascript" src="http://www.java1234.com/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>-->
+		<script type="text/javascript" src="js/good.js"></script>
+		<script>
+			function submitForm(){
+				$('#ff').form('submit');
+			}
+			function clearForm(){
+				$('#ff').form('clear');
+			}
+		</script>
+	</body>
+
+</html>

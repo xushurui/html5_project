@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="http://www.java1234.com/jquery-easyui-1.3.3/themes/default/easyui.css">
+		<link rel="stylesheet" type="text/css" href="http://www.java1234.com/jquery-easyui-1.3.3/themes/icon.css">
+		<link rel="stylesheet" type="text/css" href="http://www.java1234.com/jquery-easyui-1.3.3/demo/demo.css">
+	</head>
+
+	<body>
+		<div style="width: 1000px;height:50px;">
+			<span>活动名称</span>
+			<input type="text" id="activityName" />
+			<span>活动类型</span>
+			<input type="text" id="aType">
+			<div id="aSelectType">
+				<div style="background:#eee;padding:5px;">
+					请选择团购类型
+				</div>
+				<div style="padding:5px;">
+					<input type="radio" name="tuan" value="01" />
+					<span>参团</span><br>
+					<input type="radio" name="tuan" value="02" />
+					<span>开团</span><br>
+
+				</div>
+			</div>
+			<span>店铺名称</span>
+			<input type="text" id="aStoreName">
+			<div id="aSelectStore">
+				<div style="background:#eee;padding:5px;">
+					请选择店铺
+				</div>
+				<div style="padding:5px;">
+					<input type="radio" name="store" value="01" />
+					<span>xxx</span><br>
+				</div>
+			</div>
+			<span>开团时间</span>
+			<input type="text" id="startTime" />
+			<span>到期时间</span>
+			<input type="text" id="endTime" />
+			<span>活动状态</span>
+			<input type="text" id="activityState">
+			<div id="aSelectState">
+				<div style="background:#eee;padding:5px;">
+					请选择活动状态类型
+				</div>
+				<div style="padding:5px;">
+					<input type="radio" name="tuan" value="01" />
+					<span>进行中</span><br>
+					<input type="radio" name="tuan" value="02" />
+					<span>已终止</span><br>
+				</div>
+			</div>
+			<a id="aSearch"></a>
+
+		</div>
+		<div>
+			<a id="activityAdd"  onclick="$('#activityWindow').window('open')">添加</a>
+			<a id="activityRemove">删除</a>
+			<a id="activityEdit" >编辑</a>
+		</div>
+		<div id="activityWindow" style="width:500px;height:400px;padding:10px;">
+			<form id="acitivityForm" action="form" method="post">
+				<table>
+					<tr>
+						<td>活动名称:</td>
+						<td>
+							<input class="easyui-validatebox" type="text" name="name" data-options="required:true,validType:'length[8,12]'" />
+						</td>
+					</tr>
+					<tr>
+						<td>店铺名称:</td>
+						<td>
+							<input type="text" id="aStoreNameOne">
+							<div id="aSelectStoreOne">
+								<div style="background:#eee;padding:5px;">
+									请选择店铺
+								</div>
+								<div style="padding:5px;">
+									<input type="radio" name="store" value="01" />
+									<span>xxx</span><br>
+								</div>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td>商品名称</td>
+						<td>
+							<input class="easyui-validatebox" type="text" name="name" data-options="required:true,validType:'length[8,12]'" />
+						</td>
+					</tr>
+					<tr>
+						<td>商品数量</td>
+						<td>
+							<input class="easyui-numberspinner" type="text" name="name" data-options="required:true,min:2" />
+						</td>
+					</tr>
+					<tr>
+						<td>开团时间</td>
+						<td>
+							<input id="aStartTimeOne" type="text" name="name" />
+						</td>
+					</tr>
+					<tr>
+						<td>到期时间</td>
+						<td>
+							<input id="aEndTimeOne" type="text" name="name" />
+						</td>
+					</tr>
+					<tr>
+						<td>参团人数</td>
+						<td>
+							<input class="easyui-numberspinner" type="text" name="name" data-options="required:true,min:2" />
+						</td>
+					</tr>
+					<tr>
+						<td>活动状态</td>
+						<td>
+							<input type="text" id="activityStateOne">
+							<div id="aSelectStateOne">
+								<div style="background:#eee;padding:5px;">
+									请选择活动状态类型
+								</div>
+								<div style="padding:5px;">
+									<input type="radio" name="tuan" value="01" />
+									<span>进行中</span><br>
+									<input type="radio" name="tuan" value="02" />
+									<span>已终止</span><br>
+								</div>
+							</div>
+						</td>
+
+					</tr>
+				</table>
+			</form>
+			<div style="text-align:center;padding:5px">
+				<a href="javascript:void(0)" class="easyui-linkbutton" id="aSubmit" onclick="submitFormA()">提交</a>
+				<a href="javascript:void(0)" class="easyui-linkbutton" id="aClear" onclick="clearFormA()">重置</a>
+			</div>
+
+		</div>
+		<div id="activity"></div>
+
+		<!--<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="http://www.java1234.com/jquery-easyui-1.3.3/jquery.min.js"></script>
+		<script type="text/javascript" src="http://www.java1234.com/jquery-easyui-1.3.3/jquery.easyui.min.js"></script>-->
+		<script type="text/javascript" src="js/activity.js"></script>
+		<script>
+			function submitFormA(){
+				$('#acitivityForm').form('submit');
+			}
+			function clearFormA(){
+				$('#acitivityForm').form('clear');
+			}
+		</script>
+	</body>
+
+</html>
